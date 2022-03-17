@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats for you</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div id="box">
+        <center>
+            <img id="animal" class="img" width="500">
+            <div class="brV2"></div>
+            <button id="btn" class="btn">click me!</button>
+        </center>
+    </div>
+    <script>
+
+        /**
+         * @param {Array} tbl
+         **/
+        var random = (tbl) => {
+            let filtered = Object.values(tbl).filter(e => typeof e !== "undefined")
+            return filtered[Math.floor(Math.random() * filtered.length)]
+        }
+
+        var setImage = (img) => {
+            fetch(`https://nekos.life/api/v2/img/${img}`).then(data => {
+                data.json().then(res => {
+                    document.getElementById('animal').src = res.url
+                })
+            })
+        }
+        window.onload = (ev) => {
+            setImage('lizard')
+        }
+
+        document.getElementById('btn').onclick = () => {
+            setImage(random(['lizard', 'meow', 'woof']))
+        }
+    </script>
+</body>
+
+</html>
