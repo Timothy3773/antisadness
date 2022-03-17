@@ -6,6 +6,9 @@ html {
     background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     background-repeat: no-repeat;
     height: 100%;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 500;
+    color: white;
 }
 
 body {
